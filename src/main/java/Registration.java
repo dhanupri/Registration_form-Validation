@@ -7,10 +7,16 @@ public class Registration {
 
 
     }
+    public static boolean LastName(String last_name) {
+        return last_name.matches("^[A-Z][a-z]{2,}$");
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a First Name:");
         String First_name = sc.nextLine();
         boolean result_First_name = FirstName(First_name);
+        System.out.println("Enter a Last Name:");
+        String Last_name=sc.nextLine();
+        boolean result_last_Name=LastName(Last_name);
     }
 }
