@@ -16,6 +16,10 @@ public class Registration {
     public static boolean Mobile_number(String mobile_number) {
         return mobile_number.matches("^\\d{2} \\d{10}$");
     }
+    public static boolean Password(String password) {
+        return password.matches("^.{8,}$");
+
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a First Name:");
@@ -30,5 +34,11 @@ public class Registration {
         System.out.println("Enter Mobile Number");
         String mobile_number= sc.nextLine();
         boolean result_mobile_number=Mobile_number(mobile_number);
+        System.out.println("Enter a Password:");
+        String password= sc.nextLine();
+        boolean result_password=Password(password);
+
+
+
     }
 }
