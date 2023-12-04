@@ -13,6 +13,9 @@ public class Registration {
     public static boolean Email(String email) {
         return email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
     }
+    public static boolean Mobile_number(String mobile_number) {
+        return mobile_number.matches("^\\d{2} \\d{10}$");
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a First Name:");
@@ -24,5 +27,8 @@ public class Registration {
         System.out.println("Enter an Email Id:");
         String email=sc.nextLine();
         boolean result_email=Email(email);
+        System.out.println("Enter Mobile Number");
+        String mobile_number= sc.nextLine();
+        boolean result_mobile_number=Mobile_number(mobile_number);
     }
 }
