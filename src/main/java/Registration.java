@@ -17,7 +17,7 @@ public class Registration {
         return mobile_number.matches("^\\d{2} \\d{10}$");
     }
     public static boolean Password(String password) {
-        return password.matches("^[A-Z][a-z]{2,}$");
+        return password.matches("^(?=.*[A-Z]).(?=.*[0-9]).(?=[A-Za-z\\d]*[^A-Za-z\\d][A-Za-z\\d]*$){1}.{8,}$");
 
     }
     public static void main(String[] args) {
