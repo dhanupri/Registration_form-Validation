@@ -21,7 +21,7 @@ public class Registration {
         return last_name.matches("^[A-Z][a-z]{2,}$");
     }
     public static boolean Email(String email) {
-        return email.matches("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$");
+        return email.matches("^([a-zA-Z0-9_\\+-]+(\\.[a-zA-Z0-9_\\-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z]{2,})+)$");
     }
     public static boolean Mobile_number(String mobile_number) {
         return mobile_number.matches("^\\d{2} \\d{10}$");
