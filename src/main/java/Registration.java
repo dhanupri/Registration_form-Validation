@@ -1,4 +1,14 @@
+import java.lang.reflect.Method;
 import java.util.Scanner;
+
+class InvalidException extends Exception{
+
+    InvalidException(String msg){
+        super(msg);
+
+    }
+
+}
 
 public class Registration {
     public static boolean FirstName(String First_name) {
@@ -20,23 +30,67 @@ public class Registration {
         return password.matches("^(?=.*[A-Z]).(?=.*[0-9]).(?=[A-Za-z\\d]*[^A-Za-z\\d][A-Za-z\\d]*$){1}.{8,}$");
 
     }
+
+    public static void Validation(String s,boolean b) throws InvalidException {
+        if(!b){
+            throw new InvalidException("Invalid Input....");
+
+        }
+
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a First Name:");
         String First_name = sc.nextLine();
-        boolean result_First_name = FirstName(First_name);
+        try {
+            Validation(First_name,FirstName(First_name));
+
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+
         System.out.println("Enter a Last Name:");
         String Last_name=sc.nextLine();
-        boolean result_last_Name=LastName(Last_name);
+
+        try{
+            Validation(Last_name,LastName(Last_name));
+        } catch (InvalidException e) {
+            System.err.println(e.getMessage());
+
+        }
+
         System.out.println("Enter an Email Id:");
         String email=sc.nextLine();
-        boolean result_email=Email(email);
+        try {
+            Validation(email,Email(email));
+        }
+        catch (InvalidException e) {
+            System.err.println(e.getMessage());
+
+        }
+
+
         System.out.println("Enter Mobile Number");
         String mobile_number= sc.nextLine();
-        boolean result_mobile_number=Mobile_number(mobile_number);
+        try {
+            Validation(mobile_number,Mobile_number(mobile_number));
+        }
+        catch (InvalidException e) {
+            System.err.println(e.getMessage());
+
+        }
+
         System.out.println("Enter a Password:");
         String password= sc.nextLine();
-        boolean result_password=Password(password);
+        try {
+            Validation(password,Password(password));
+        }
+        catch (InvalidException e) {
+            System.err.println(e.getMessage());
+
+        }
+       
 
 
 
